@@ -1,0 +1,402 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
+
+/* Shared base */
+         .line {
+         height: 2px;
+         width: 100%;
+         background-color: #fff;
+         transform: scaleX(0);
+         transition: transform 0.7s ease;
+         opacity: 1;
+         }
+         /* Line for checkpoints 1–5 */
+         .line-left {
+         transform-origin: left;
+         position: absolute;
+         top: 40px;
+         right: 275px;
+         }
+         /* Line for checkpoints 6–10 */
+         .line-right {
+         transform-origin: right;
+         position: absolute;
+         top: 40px;
+         left: 275px;
+         }
+         /* Trigger animation when visible */
+         .info-block.visible .line {
+         transform: scaleX(1);
+         }
+         /* Make sure the info-blocks are positioned relative */
+         .info-block {
+         position: relative;
+         overflow: visible;
+         }
+         :root {
+         --primary: #1E1E1E;
+         --dark: #121212;
+         --pure: #ffffff;
+         --gray: #1d1d1d;
+         --mild: #b9b8b8;
+         }
+         body {
+         font-family: 'Familjen Grotesk', sans-serif;
+         background: var(--dark);
+         color: var(--pure);
+         margin: 0;
+         padding: 0;
+         overflow-x: hidden;
+         }
+         section {
+         position: relative;
+         height: 100vh;
+         background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         text-transform: uppercase;
+         }
+         a {
+         text-decoration: none;
+         }
+         h1 {
+         font-weight: 400;
+         font-size: 28px;
+         line-height: 1.7;
+         margin-bottom: 30px;
+         }
+         h2 {
+         font-weight: 500;
+         font-size: 20px;
+         line-height: 1.5;
+         margin-bottom: 25px;
+         }
+         h3 {
+         font-weight: 400;
+         font-size: 18px;
+         line-height: 1.4;
+         margin-bottom: 20px;
+         }
+         h4 {
+         font-size: 12px;
+         font-weight: 400;
+         margin-bottom: 20px;
+         }
+         h5 {
+         font-size: 18px;
+         font-weight: 300;
+         }
+         h6 {
+         font-size: 28px;
+         font-weight: 300;
+         }
+         p {
+         font-size: 16px;
+         line-height: 1.6;
+         color: var(--pure);
+         margin-bottom: 15px;
+         text-align: justify;
+         }
+         /*.block .with_underline {
+         position: relative;
+         margin-bottom: 38px;
+         display: flex;
+         align-items: center;
+         border-bottom: 1px solid gray;
+         }*/
+         /* Add the underline style */
+         .with-underline {
+         /*padding-bottom: 5px;  Optional: Add some space below the underline */
+         border-bottom: 2px solid var(--pure); /* Custom underline style */
+         display: inline-block; /* Make sure it behaves like a block element */
+         /*    font-weight: bold;*/
+         }
+         /* Optionally, make the text more prominent with some styles */
+         .with-underline h4 {
+         font-weight: bold; /* Make the heading bold */
+         }
+         /* Flexbox container for horizontal layout */
+         .info-row {
+         display: flex;
+         justify-content: flex-start;;
+         align-items: flex-start;
+         gap: 10px; /* Space between the columns */
+         }
+         /* Each item inside the row */
+         .info-item {
+         display: flex;
+         flex-direction: column; /* Stack h4 and h6 vertically */
+         align-items: center; /* Center the text */
+         }
+         /* Underline style for headings */
+         .with-underline {
+         padding-bottom: 5px;
+         border-bottom: 2px solid var(--pure);
+         display: inline-block;
+         }
+         /* Smaller text for SEC */
+         small {
+         font-size: 12px; /* Adjust the size to make SEC smaller */
+         font-weight: normal; /* Optional: Make SEC less bold */
+         }
+         .container {
+         width: 1460px;
+         max-width: 90%;
+         margin: 0 auto;
+         border: 2px solid red;
+         }
+         .robot-section {
+         border: 2px solid blue;
+         position: relative;
+         height: 500vh;
+         display: flex;
+         justify-content: center;
+         align-items: flex-start;
+         padding-top: 100px;
+         scroll-snap-type: y mandatory;
+         /* overflow: hidden; */
+         }
+         .robot-body {
+         position: fixed;
+         top: -150px;
+         left: 50%;
+         transform: translateX(-50%);
+         transition: transform 0.5s ease-in-out, top 1s ease-out;
+         opacity: 0;
+         z-index: 2;
+         border: 2px solid green;
+         }
+         .robot-body img {
+         width: 600px;
+         height: auto;
+         }
+         .info-blocks {
+         position: absolute;
+         left: 0;
+         right: 0;
+         display: flex;
+         justify-content: space-between;
+         width: 100%;
+         z-index: 1;
+         }
+         .info-column {
+         width: 45%;
+         display: flex;
+         flex-direction: column;
+         position: relative;
+         top: 0;
+         }
+         .info-block {
+         position: absolute;
+         width: 250px;
+         background: var(--gray);
+         padding: 10px;
+         border-radius: 8px;
+         opacity: 0;
+         transition: opacity 0.5s ease-in-out;
+         border: 2px dashed yellow;
+         }
+         .info-block .with-underline {
+         position: relative;
+         margin-bottom: 38px;
+         }
+         /* Adjusted the spacing of checkpoints */
+         #checkpoint-1 { top: 0; left: 50px; }
+         #checkpoint-2 { top: 750px; left: 30px; }
+         #checkpoint-3 { top: 1200px; left: 30px; }
+         #checkpoint-4 { top: 1500px; left: 30px; }
+         #checkpoint-5 { top: 1800px; left: 30px; }
+         #checkpoint-6 { top: 2100px; left: 200px; }
+         #checkpoint-7 { top: 2400px; left: 200px; }
+         #checkpoint-8 { top: 2700px; left: 200px; }
+         #checkpoint-9 { top: 3000px; left: 200px; }
+         #checkpoint-10 { top: 3300px; left: 200px; }
+         /* Left and Right Blocks */
+         .left-blocks, .right-blocks {
+         position: relative;
+         margin-top: 40px;
+         /*top: 100px;*/
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         z-index: 1;
+         width: 300px; 
+         border: 2px solid orange;
+         }
+         .left-blocks {
+         right: 350px;
+         }
+         .right-blocks {
+         left: 300px;
+         }
+         .left-blocks .block, .right-blocks .block {
+         margin-bottom: 80px; /* Increase spacing between blocks */
+         position: relative;
+         }
+         .checkpoint {
+         position: absolute;
+         left: 50%;
+         transform: translateX(-50%);
+         width: 20px;
+         height: 20px;
+         background-color: white; /* Adjust color as needed */
+         border-radius: 50%;
+         z-index: 3;
+         }
+         /* Position checkpoints exactly in the gaps */
+         .left-blocks .checkpoint,
+         .right-blocks .checkpoint {
+         top: calc(100% + 20px); /* Place checkpoints below each block */
+         }
+         .block {
+         background: var(--gray);
+         margin: 10px 0;
+         padding: 15px;
+         border-radius: 8px;
+         opacity: 0;
+         transition: opacity 0.5s ease-in-out;
+         height: auto; 
+         width: 100%; 
+         border: 2px solid cyan;
+         scroll-snap-align: start;
+         }
+         .block img {
+         border-radius: 8px;
+         margin-bottom: 10px;
+         }
+         /* Basic block styles */
+         .block {
+         background: var(--gray);
+         padding: 20px;
+         border-radius: 8px;
+         width: 100%;
+         max-width: 400px;
+         margin-bottom: 30px;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         }
+         /* Title Styling */
+         .block h3 {
+         font-size: 32px;
+         margin-bottom: 15px;
+         color: var(--pure);
+         text-transform: uppercase;
+         letter-spacing: 2px;
+         }
+         /* Paragraph Styling */
+         .block p {
+         font-size: 16px;
+         line-height: 1.6;
+         color: var(--pure);
+         margin-bottom: 20px;
+         }
+         /* Image Styling */
+         .block-image {
+         width: 100%; /* Make the image responsive */
+         height: auto;
+         margin-bottom: 20px;
+         border-radius: 8px;
+         object-fit: cover; /* Keeps the image ratio intact while filling the space */
+         }
+         /* Common Button Styles */
+         .btn {
+         position: relative;
+         display: inline-block;
+         cursor: pointer;
+         text-align: center;
+         min-width: 130px;
+         padding: 15px 50px;
+         margin-top: 10px;
+         border: 2px solid #fff;
+         text-transform: uppercase;
+         font-weight: bold;
+         overflow: hidden;
+         z-index: 2;
+         background: transparent;
+         transition: color 0.3s ease-in-out;
+         }
+         /* Default Version: Fully Rounded */
+         .btn {
+         border-radius: 30px;
+         }
+         /* Original Shape: One Side Rounded, One Angular */
+         .btn.original {
+         border-radius: 25px 5px;
+         }
+         /* Fully Rounded */
+         .btn.rounded {
+         border-radius: 30px;
+         }
+         /* Fully Angular */
+         .btn.angular {
+         border-radius: 0;
+         }
+         .btn span {
+         color: #fff;
+         z-index: 1;
+         position: relative;
+         }
+         .btn:hover span {
+         color: #000;
+         }
+         .btn .hover {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: #fff;
+         z-index: -1;
+         transform: translateY(100%);
+         transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+         }
+         .btn:hover .hover {
+         transform: translateY(0);
+         }
+         /* Adjust layout for smaller screens */
+         @media (max-width: 600px) {
+         .block {
+         padding: 15px;
+         }
+         .btn {
+         min-width: 100px;
+         padding: 10px 30px;
+         }
+         }
+         /* Table Styling Inside Blocks */
+         .block table {
+         width: 100%;
+         border-collapse: collapse;
+         margin-top: 10px;
+         }
+         .block th, 
+         .block td {
+         border: 1px solid var(--mild);
+         padding: 8px;
+         text-align: left;
+         }
+         .block th {
+         background: var(--gray);
+         color: var(--pure);
+         font-weight: bold;
+         }
+         /* Bold and white span inside td */
+         .block td span {
+         font-weight: bold;
+         color: white;
+         }
+         /* Gray color for non-span text inside td */
+         .block td {
+         color: #999;
+         }
+         /* Align second column text to the right */
+         .block td:nth-child(2) {
+         text-align: right;
+         }
+         /* Half-width bottom border under "Specifications" */
+         h2::after {
+         content: "";
+         display: block;
+         width: 50%;  /* Half width */
+         margin-left: 0;  /* margin: 5px auto 10px; Centered */
+         border-bottom: 2px solid var(--mild);  /* Border styling */
+         }
