@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
              let rightBlocks = document.querySelectorAll('.right-blocks .block');
              let content = document.querySelector('.robot-section');
              let lastScrollPosition = 0;
-             let stopPosition = 206.6;
+             let stopPosition = 206.6;//206.6
          
              document.addEventListener('scroll', function () {
                  let currentScrollPosition = window.scrollY;
@@ -66,4 +66,32 @@ document.addEventListener('DOMContentLoaded', function() {
                      robot.style.bottom = 'auto';
                  }
              });
+         
+         
+         
+         
+             let lastScrollY = window.scrollY;
+         let rotation = 0;
+         
+         window.addEventListener('scroll', () => {
+         const currentScrollY = window.scrollY;
+         const gear = document.querySelector('.gear-scroll');
+         
+         if (!gear) return;
+         
+         if (currentScrollY > lastScrollY) {
+         // Scrolling down
+         rotation += 180;
+         } else if (currentScrollY < lastScrollY) {
+         // Scrolling up
+         rotation -= 90;
+         }
+         
+         gear.style.transform = `rotate(${rotation}deg)`;
+         lastScrollY = currentScrollY;
+         });
+         
+         
+         
+         
          });
