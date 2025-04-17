@@ -1,7 +1,83 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap");
 
-/* Shared base */
+.gear-scroll {
+         transform-origin: center;
+         transition: transform 0.6s ease;
+         }
+         .media-wrapper {
+         width: 100%;
+         max-width: 100%;
+         overflow: hidden;
+         }
+         .media-wrapper video,
+         .media-wrapper img {
+         width: 100%;
+         height: auto;
+         border-radius: 10px;
+         display: block;
+         }
+         /* === Base block style === */
+         .block {
+         position: relative;
+         padding: 30px 0;
+         color: white;
+         }
+         /* === Version 1: Left/Right Info Blocks === */
+         .block.vertical-divider.left-right {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         }
+         .block.vertical-divider.left-right::before {
+         content: "";
+         position: absolute;
+         left: 50%;
+         top: 25%;
+         height: 50%;
+         width: 2px;
+         background-color: white;
+         transform: translateX(-50%);
+         z-index: 1;
+         opacity: 0.7;
+         }
+         .block.vertical-divider.left-right .half {
+         width: 43%;
+         z-index: 2;
+         }
+         .block.vertical-divider.left-right .half:first-child {
+         margin-left: 30px;
+         }
+         /* === Version 2: Left Info + Right Paragraph === */
+         .block.vertical-divider.paragraph-right .info-row {
+         display: flex;
+         position: relative;
+         justify-content: space-between;
+         align-items: flex-start;
+         }
+         .block.vertical-divider.paragraph-right .half {
+         width: 43%;
+         z-index: 2;
+         }
+         .block.vertical-divider.paragraph-right::before {
+         content: "";
+         position: absolute;
+         top: 20%;
+         bottom: 20%;
+         left: 50%;
+         width: 2px;
+         background-color: white;
+         transform: translateX(-50%);
+         z-index: 1;
+         opacity: 0.7;
+         }
+         .block.vertical-divider.paragraph-right .half p {
+         font-size: 14px;
+         line-height: 1.4;
+         color: #fff;
+         text-align: justify;
+         }
+         /* Shared base */
          .line {
          height: 2px;
          width: 100%;
@@ -148,7 +224,7 @@
          .robot-section {
          border: 2px solid blue;
          position: relative;
-         height: 500vh;
+         height: 700vh;
          display: flex;
          justify-content: center;
          align-items: flex-start;
@@ -167,7 +243,7 @@
          border: 2px solid green;
          }
          .robot-body img {
-         width: 600px;
+         width: 450px;
          height: auto;
          }
          .info-blocks {
@@ -203,14 +279,14 @@
          /* Adjusted the spacing of checkpoints */
          #checkpoint-1 { top: 0; left: 50px; }
          #checkpoint-2 { top: 750px; left: 30px; }
-         #checkpoint-3 { top: 1200px; left: 30px; }
-         #checkpoint-4 { top: 1500px; left: 30px; }
-         #checkpoint-5 { top: 1800px; left: 30px; }
-         #checkpoint-6 { top: 2100px; left: 200px; }
-         #checkpoint-7 { top: 2400px; left: 200px; }
-         #checkpoint-8 { top: 2700px; left: 200px; }
-         #checkpoint-9 { top: 3000px; left: 200px; }
-         #checkpoint-10 { top: 3300px; left: 200px; }
+         #checkpoint-3 { top: 1525px; left: 30px; }
+         #checkpoint-4 { top: 2590px; left: 30px; }
+         #checkpoint-5 { top: 3100px; left: 30px; }
+         #checkpoint-6 { top: 3500px; left: 200px; }
+         #checkpoint-7 { top: 4000px; left: 200px; }
+         #checkpoint-8 { top: 4400px; left: 200px; }
+         #checkpoint-9 { top: 4700px; left: 200px; }
+         #checkpoint-10 { top: 5300px; left: 200px; }
          /* Left and Right Blocks */
          .left-blocks, .right-blocks {
          position: relative;
@@ -393,10 +469,10 @@
          text-align: right;
          }
          /* Half-width bottom border under "Specifications" */
-         h2::after {
+         .half_b h2::after {
          content: "";
          display: block;
-         width: 50%;  /* Half width */
-         margin-left: 0;  /* margin: 5px auto 10px; Centered */
-         border-bottom: 2px solid var(--mild);  /* Border styling */
+         width: 30%;  
+         margin-left: 0; 
+         border-bottom: 2px solid var(--mild); 
          }
